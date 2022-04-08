@@ -8,7 +8,7 @@ import Router from './Router'
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {contacts:[], user:[]};
+    this.state = {contacts:[]};
   }
   componentDidMount = () => {
     firebase.firestore().collection("contacts").onSnapshot ((document) =>{
