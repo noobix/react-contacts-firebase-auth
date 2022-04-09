@@ -2,7 +2,8 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 
-const protectedRoute = ({children, user}) => {
+const protectedRoute = (props) => {
+    const {children, user} = props
     if (!user) return (<Navigate to="/signIn" replace= {true} />)
     return children
 }

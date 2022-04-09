@@ -18,6 +18,7 @@ class signIn extends React.Component {
   }
   handleSignIn = async(e) => {
       e.preventDefault()
+      console.log(this.state.email, this.state.password)
       try {
         await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
         this.props.router.navigate("/", {replace: true})
@@ -29,7 +30,7 @@ class signIn extends React.Component {
     e.preventDefault()
     try {
       const provider = new firebaseProvider.auth.GoogleAuthProvider()
-      firebase.auth().signInWithPopup(provider)
+      await firebase.auth().signInWithPopup(provider)
       this.props.router.navigate("/", {replace: true})
     } catch (e) {
       console.log(e)
